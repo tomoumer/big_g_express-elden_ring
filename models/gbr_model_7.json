@@ -18,16 +18,16 @@
         "variables used": "all (including derate columns)"
     },
     "train_confusion_matrix": {
-        "TP": 430056,
+        "TN": 430056,
         "FP": 11595,
         "FN": 67,
-        "TN": 1083
+        "TP": 1083
     },
     "test_confusion_matrix": {
-        "TP": 100896,
+        "TN": 100896,
         "FP": 2738,
         "FN": 26,
-        "TN": 213
+        "TP": 213
     },
     "test_rocaouc_score": 0.9886569552019365,
     "top20_fature_importances": {

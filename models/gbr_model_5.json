@@ -18,16 +18,16 @@
         "variables used": "eliminated 5246 columns (derates), by using the .drop on X_train and X_test"
     },
     "train_confusion_matrix": {
-        "TP": 427793,
+        "TN": 427793,
         "FP": 13858,
         "FN": 72,
-        "TN": 1078
+        "TP": 1078
     },
     "test_confusion_matrix": {
-        "TP": 100535,
+        "TN": 100535,
         "FP": 3099,
         "FN": 37,
-        "TN": 202
+        "TP": 202
     },
     "test_rocaouc_score": 0.981873305662194,
     "top20_fature_importances": {
