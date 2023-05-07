@@ -8,7 +8,7 @@
         "how far in the past to aggregate": "7 days",
         "how to aggregate the one-hot encoded spn_fmi": "max (default)",
         "use rolling window on diagnostics?": "True ",
-        "how to aggregate diagnostics data": "max"
+        "how to aggregate diagnostics data": "mean"
     },
     "pipeline": {
         "step 1": "GradientBoostingClassifier (default values)"
