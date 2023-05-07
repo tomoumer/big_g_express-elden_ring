@@ -1,3 +1,7 @@
+# Team DS6 Project - Team Elden Ring
+
+This particular project was a collaboration between [Alison Cordoba](https://github.com/AlisonCG1), [Ajay Kale](https://github.com/AjayNSS), [Smita Misra](https://github.com/smitamisra) and myself. We worked both individually and as a team, bouncing ideas off each other and consolidating it together. For the predictions, we all worked on different models and configurantions, while discussing and building off each other.
+
 # Big G Express: Predicting Derates
 In this project, you will be working with fault code data and vehicle onboard diagnostic data to try and predict an upcoming full derate. These are indicated by an SPN 5246. 
 
