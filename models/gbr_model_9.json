@@ -1,0 +1,55 @@
+{
+    "file_path": "../models/gbr_model_9.joblib",
+    "targets": "any row where a derate (5246) happens in the next 12 hours",
+    "diagnostics_file": "used imputer to average data per truck and then simple mean to average any remaining nulls",
+    "train_test_split": "using trucks and assuring same ratio of derate and nonderate",
+    "windowize_predictors": {
+        "dataframe": "merged faults and diagnostics",
+        "how far in the past to aggregate": "1 day (default)",
+        "how to aggregate the one-hot encoded spn_fmi": "max (default)",
+        "use rolling window on diagnostics?": "False ",
+        "how to aggregate diagnostics data": "not applicable"
+    },
+    "pipeline": {
+        "step 1": "GradientBoostingClassifier (default values)"
+    },
+    "rebalancing": {
+        "over or under fitting": "used SMOTE(k_neighbors=5, random_state=42)",
+        "variables used": "all (including derate columns)"
+    },
+    "train_confusion_matrix": {
+        "TN": 428379,
+        "FP": 12843,
+        "FN": 133,
+        "TP": 1446
+    },
+    "test_confusion_matrix": {
+        "TN": 100667,
+        "FP": 2919,
+        "FN": 45,
+        "TP": 242
+    },
+    "test_rocaouc_score": 0.9743571821115025,
+    "top20_fature_importances": {
+        "spn_fmi_1569_31": 0.4388342697343652,
+        "FuelTemperature": 0.28796035091109856,
+        "LampStatus": 0.09022011567411628,
+        "activeTransitionCount": 0.035611622243538234,
+        "spn_fmi_3031_9": 0.0330264977753931,
+        "spn_fmi_5246_0": 0.017937549507472936,
+        "CruiseControlSetSpeed": 0.00884731948463206,
+        "spn_fmi_5743_9": 0.00824052552110871,
+        "spn_fmi_5394_4": 0.0064140349779212525,
+        "spn_fmi_111_18": 0.005938196062046001,
+        "spn_fmi_111_17": 0.005294698453636763,
+        "spn_fmi_1761_19": 0.004494418319748212,
+        "spn_fmi_5246_16": 0.0036880731785150565,
+        "spn_fmi_3362_31": 0.0035807880355679016,
+        "spn_fmi_1761_17": 0.003242818306693219,
+        "SwitchedBatteryVoltage": 0.003095672871670105,
+        "spn_fmi_5246_19": 0.0024671225640187024,
+        "spn_fmi_4094_31": 0.0024003298208382855,
+        "spn_fmi_2863_7": 0.002327156825281229,
+        "spn_fmi_102_2": 0.001817659596960524
+    }
+}

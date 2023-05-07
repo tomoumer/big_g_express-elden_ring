@@ -1,0 +1,55 @@
+{
+    "file_path": "../models/gbr_model_27.joblib",
+    "targets": "any row where a derate (5246) happens in the next 3 hours",
+    "diagnostics_file": "used imputer to average data per truck and then simple mean to average any remaining nulls",
+    "train_test_split": "using trucks and assuring same ratio of derate and nonderate",
+    "windowize_predictors": {
+        "dataframe": "merged faults and diagnostics",
+        "how far in the past to aggregate": "7 days",
+        "how to aggregate the one-hot encoded spn_fmi": "max (default)",
+        "use rolling window on diagnostics?": "True ",
+        "how to aggregate diagnostics data": "max"
+    },
+    "pipeline": {
+        "step 1": "GradientBoostingClassifier (default values)"
+    },
+    "rebalancing": {
+        "over or under fitting": "used SMOTE(k_neighbors=5, random_state=42)",
+        "variables used": "all (including derate columns)"
+    },
+    "train_confusion_matrix": {
+        "TN": 430659,
+        "FP": 11261,
+        "FN": 26,
+        "TP": 855
+    },
+    "test_confusion_matrix": {
+        "TN": 100494,
+        "FP": 3176,
+        "FN": 20,
+        "TP": 183
+    },
+    "test_rocaouc_score": 0.9898131433532226,
+    "top20_fature_importances": {
+        "LampStatus": 0.36814893933746934,
+        "FuelTemperature": 0.3350136736606587,
+        "spn_fmi_1569_31": 0.09912996003923828,
+        "spn_fmi_5246_0": 0.06633923752741192,
+        "activeTransitionCount": 0.03702750026286718,
+        "spn_fmi_5246_16": 0.030813215203608003,
+        "spn_fmi_111_17": 0.009492868476580124,
+        "spn_fmi_1787_11": 0.0062146408407472535,
+        "spn_fmi_157_18": 0.004796718554491727,
+        "spn_fmi_5246_15": 0.0036267804283296157,
+        "spn_fmi_596_31": 0.0031821280395897805,
+        "EngineRpm": 0.0029896848958061582,
+        "spn_fmi_3362_31": 0.001972522110155661,
+        "spn_fmi_1209_2": 0.0019601708930037003,
+        "spn_fmi_790_14": 0.0014258568232939108,
+        "SwitchedBatteryVoltage": 0.0013382516583710221,
+        "spn_fmi_1761_18": 0.0012799191517024852,
+        "EngineTimeLtd": 0.001178001301804799,
+        "spn_fmi_3251_2": 0.0011560406287741626,
+        "spn_fmi_4376_3": 0.0011365910915329515
+    }
+}

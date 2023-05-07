@@ -1,0 +1,55 @@
+{
+    "file_path": "../models/gbr_model_13.joblib",
+    "targets": "any row where a derate (5246) happens in the next 24 hours",
+    "diagnostics_file": "used imputer to average data per truck and then simple mean to average any remaining nulls",
+    "train_test_split": "using trucks and assuring same ratio of derate and nonderate",
+    "windowize_predictors": {
+        "dataframe": "merged faults and diagnostics",
+        "how far in the past to aggregate": "7 days",
+        "how to aggregate the one-hot encoded spn_fmi": "sum",
+        "use rolling window on diagnostics?": "True ",
+        "how to aggregate diagnostics data": "mean"
+    },
+    "pipeline": {
+        "step 1": "GradientBoostingClassifier (default values)"
+    },
+    "rebalancing": {
+        "over or under fitting": "used SMOTE(k_neighbors=5, random_state=42)",
+        "variables used": "all (including derate columns)"
+    },
+    "train_confusion_matrix": {
+        "TN": 426514,
+        "FP": 14301,
+        "FN": 176,
+        "TP": 1810
+    },
+    "test_confusion_matrix": {
+        "TN": 99699,
+        "FP": 3726,
+        "FN": 81,
+        "TP": 367
+    },
+    "test_rocaouc_score": 0.9727392067232984,
+    "top20_fature_importances": {
+        "spn_fmi_1569_31": 0.3096949451894725,
+        "LampStatus": 0.22518210378635728,
+        "FuelTemperature": 0.20678041371409767,
+        "spn_fmi_3031_9": 0.035005145787079965,
+        "activeTransitionCount": 0.02873704501491539,
+        "spn_fmi_929_9": 0.019919642845520502,
+        "spn_fmi_5246_16": 0.017395442369898418,
+        "spn_fmi_3226_9": 0.013789654053392823,
+        "spn_fmi_3364_9": 0.010284335128220265,
+        "spn_fmi_3362_31": 0.009930324666269643,
+        "spn_fmi_1787_11": 0.006965083436121218,
+        "spn_fmi_5743_9": 0.006845857148585611,
+        "FuelLtd": 0.006690453804150922,
+        "BarometricPressure": 0.006374128686908047,
+        "spn_fmi_5742_9": 0.005851006525415608,
+        "spn_fmi_5246_0": 0.005429296756650367,
+        "EngineRpm": 0.005412705825416637,
+        "spn_fmi_2863_7": 0.004980714802219296,
+        "DistanceLtd": 0.0049013261736407425,
+        "spn_fmi_792_14": 0.004691428637044305
+    }
+}

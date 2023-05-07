@@ -1,0 +1,55 @@
+{
+    "file_path": "../models/gbr_model_22.joblib",
+    "targets": "any row where a derate (5246) happens in the next week",
+    "diagnostics_file": "used imputer to median data per truck and then median again to average any remaining nulls",
+    "train_test_split": "using trucks and assuring same ratio of derate and nonderate",
+    "windowize_predictors": {
+        "dataframe": "merged faults and diagnostics",
+        "how far in the past to aggregate": "7 days",
+        "how to aggregate the one-hot encoded spn_fmi": "max (default)",
+        "use rolling window on diagnostics?": "True ",
+        "how to aggregate diagnostics data": "max"
+    },
+    "pipeline": {
+        "step 1": "GradientBoostingClassifier (default values)"
+    },
+    "rebalancing": {
+        "over or under fitting": "used SMOTE(k_neighbors=5, random_state=42)",
+        "variables used": "all (including derate columns)"
+    },
+    "train_confusion_matrix": {
+        "TN": 420039,
+        "FP": 17544,
+        "FN": 817,
+        "TP": 4401
+    },
+    "test_confusion_matrix": {
+        "TN": 98647,
+        "FP": 4144,
+        "FN": 477,
+        "TP": 605
+    },
+    "test_rocaouc_score": 0.8773344369012075,
+    "top20_fature_importances": {
+        "spn_fmi_1569_31": 0.17963381404189427,
+        "activeTransitionCount_y": 0.16775616957111708,
+        "activeTransitionCount_x": 0.0904862633337796,
+        "FuelTemperature": 0.07842433111552632,
+        "EngineOilTemperature": 0.05632198502979381,
+        "spn_fmi_929_9": 0.05564866931445524,
+        "LampStatus": 0.03973697894668568,
+        "BarometricPressure": 0.03770865279002397,
+        "EngineTimeLtd": 0.03531758392548777,
+        "DistanceLtd": 0.029268204897253774,
+        "FuelLtd": 0.01931194376600747,
+        "Throttle": 0.017351416257658434,
+        "CruiseControlSetSpeed": 0.010859889598564048,
+        "MCTNumber": 0.01069936768711433,
+        "FuelRate": 0.009438009276819016,
+        "spn_fmi_789_7": 0.0077917231130055584,
+        "spn_fmi_5246_0": 0.007398693913335935,
+        "EngineCoolantTemperature": 0.0072663926153656525,
+        "spn_fmi_1787_11": 0.006858681092533467,
+        "spn_fmi_5246_16": 0.006604258752928933
+    }
+}

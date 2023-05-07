@@ -1,0 +1,55 @@
+{
+    "file_path": "../models/gbr_model_4.joblib",
+    "targets": "any row where a derate (5246) happens in the next 6 hours",
+    "diagnostics_file": "used imputer to average data per truck and then simple mean to average any remaining nulls",
+    "train_test_split": "using trucks and assuring same ratio of derate and nonderate",
+    "windowize_predictors": {
+        "dataframe": "merged faults and diagnostics",
+        "how far in the past to aggregate": "1 day (default) ",
+        "how to aggregate the one-hot encoded spn_fmi": "max (default)",
+        "use rolling window on diagnostics?": "False ",
+        "how to aggregate diagnostics data": "not applicable"
+    },
+    "pipeline": {
+        "step 1": "GradientBoostingClassifier (default values)"
+    },
+    "rebalancing": {
+        "over or under fitting": "used SMOTE(k_neighbors=5, random_state=42)",
+        "variables used": "all (including derate columns)"
+    },
+    "train_confusion_matrix": {
+        "TN": 429435,
+        "FP": 12216,
+        "FN": 66,
+        "TP": 1084
+    },
+    "test_confusion_matrix": {
+        "TN": 100820,
+        "FP": 2814,
+        "FN": 16,
+        "TP": 223
+    },
+    "test_rocaouc_score": 0.9913287128995888,
+    "top20_fature_importances": {
+        "LampStatus": 0.38445790972842653,
+        "FuelTemperature": 0.23979667995901174,
+        "spn_fmi_1569_31": 0.19125532718146696,
+        "activeTransitionCount": 0.05950908183655948,
+        "spn_fmi_5246_0": 0.02231862780717335,
+        "spn_fmi_111_17": 0.020257197687370998,
+        "spn_fmi_111_18": 0.011523775341561971,
+        "spn_fmi_3031_9": 0.009962377025712366,
+        "spn_fmi_1761_17": 0.0060954192853535,
+        "CruiseControlSetSpeed": 0.005162059068816256,
+        "spn_fmi_5743_9": 0.003963829766764454,
+        "spn_fmi_5246_16": 0.003245294050315101,
+        "spn_fmi_4094_31": 0.002697034381156446,
+        "spn_fmi_5246_19": 0.002254658460914816,
+        "spn_fmi_1761_19": 0.0021791522578981375,
+        "spn_fmi_3362_31": 0.0020142159766823823,
+        "spn_fmi_111_3": 0.001926990014011476,
+        "FuelLevel": 0.0017301351846845203,
+        "EngineLoad": 0.0016346502008789344,
+        "EngineOilPressure": 0.0015987754975497598
+    }
+}
